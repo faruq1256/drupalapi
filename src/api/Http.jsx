@@ -24,18 +24,14 @@ Http.interceptors.request.use((config) =>{
   return config;
 });
 
-// acR1Gz5kIly2RPWkP-ZT9xWQaL_mDlMh58ijB6qheZ0
-// Basic YWRtaW46YWRtaW4xMjU2JA==
 
-// Http.interceptors.response.use((config) =>{
-//   console.log("Config Response" + config);
-//   //if(config.status == 200){
-//    // setTimeout(() =>{
-//      // router.push('/login');
-//    // },10000)
-//  // }
-//   return config
-// });
+Http.interceptors.response.use((config) =>{
+  // console.log("Config Response" + JSON.stringify(config));
+//   if(config.status == 403){
+//     props.history.push('/login');
+//  }
+  return config
+});
 
 // const formatBasicAuth = (props) => {
 //   return basicAuthCredential = window.btoa(props.name + ":" + props.pass);

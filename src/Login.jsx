@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import {Route} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import Http from './api/Http';
+import { useAuth } from "./auth/auth";
 
 
 const Login = (props) => {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const { setAuthTokens } = useAuth();
   const [user, setUser] = useState({
       name: '',
       pass: ''
@@ -36,8 +39,10 @@ const Login = (props) => {
       console.log("RESPONSE RECEIVED: ", res.data);
       const basicAuthCredential = window.btoa(name + ":" + pass);
       localStorage.setItem("token", basicAuthCredential);
-      localStorage.setItem("csrf", res.data.csrf_token);  
-      props.history.push('/node/add');
+      localStorage.setItem("csrf", res.data.csrf_token); 
+      setAuthTokens(res.data); 
+      setLoggedIn(true);
+      // props.history.push('/node/add');
      })
     .catch((err) => {
       console.log("AXIOS ERROR: ", err);
@@ -49,6 +54,9 @@ const Login = (props) => {
     
   };
 
+  if (isLoggedIn) {
+    return <Redirect to="/node/add" />;
+  }
 
   return (
     <>

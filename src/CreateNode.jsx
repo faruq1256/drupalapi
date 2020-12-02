@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import Http from './api/Http';
 
-const CreateNode = () => {
+const CreateNode = (props) => {
   const [node, setNode] = useState({
     title: "",
     body: "",
   });
-  const [redirecNode, setRedirectNode] = useState(false);
+
+  const [spinner, setSpinner] = useState(false);
 
   const InputEvent = (event) => {
-    // let name = event.target.name;
-    // let value = event.target.value;
+
     let { name, value } = event.target;
     setNode((preValue) => {
       return {
@@ -21,6 +20,11 @@ const CreateNode = () => {
     });
   };
 
+
+  const buttonEvent = () => {
+    setSpinner(true);
+  }
+
   const submitEvent = (event) => {
     event.preventDefault();
     const { title, body } = node;
@@ -29,7 +33,7 @@ const CreateNode = () => {
       const data = {
         _links: {
           type: {
-            href: `http://localhost/examples/drupal8/rest/type/node/article`,
+            href: `http://janari.in/drupal/rest/type/node/article`,
           },
         },
         title: [
@@ -44,10 +48,10 @@ const CreateNode = () => {
         ],
         body: [{ value: body }],
       };
-      const response = await Http.post(`/entity/node?_format=hal_json`, data)
+      const res = await Http.post(`/entity/node?_format=hal_json`, data)
         .then((res) => {
-          setRedirectNode(true);
-          // <Redirect to="/" />;
+          setSpinner(false);
+          props.history.push('/node/list');
         })
         .catch((err) => {
           console.log("AXIOS ERROR: ", err);
@@ -55,11 +59,6 @@ const CreateNode = () => {
     }
     addNode();
   };
-
-  if (redirecNode) return redirectTo();
-  function redirectTo() {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>
@@ -95,9 +94,12 @@ const CreateNode = () => {
                     placeholder="Enter Message"
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary" onClick={buttonEvent}>
                   Create
                 </button>
+                { (spinner) ? <div className="spinner-border" role="status"><span className="sr-only">Loading...</span></div> : ''
+                  
+                }
               </form>
             </div>
           </div>

@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <>
         <footer className="w-100 bg-light text-center">
-            <p>@2020 Royal Bawarchi. All rights reservec</p>
+            <p>@2020 Drupal API Example. All rights reservec</p>
         </footer>
         </>
     );
