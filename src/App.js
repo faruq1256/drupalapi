@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import Menu from './Menu';
+import Home from './Home';
+import CreateNode from './CreateNode';
+import Login from './Login'
+import Logout from './Logout'
+import ListNodes from './ListNodes';
+import Footer from './Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+return (
+  <>
+  <Menu />
+  <Switch>
+  <Route exact path='/' component={Home} />
+  <Route exact path='/login' component={Login} />
+  <Route exact path='/logout' component={Logout} />
+  <Route exact path='/node/add' component={CreateNode} />
+  <Route exact path='/node/list' component={ListNodes} />
+  <Redirect to="/" />
+  </Switch>
+  <Footer />
+  </>
+);
 }
 
 export default App;
