@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/drupalapi/static/css/main.cd5af194.chunk.css",
+    "main.js": "/drupalapi/static/js/main.ec83b3f1.chunk.js",
+    "main.js.map": "/drupalapi/static/js/main.ec83b3f1.chunk.js.map",
+    "runtime-main.js": "/drupalapi/static/js/runtime-main.5fca67ec.js",
+    "runtime-main.js.map": "/drupalapi/static/js/runtime-main.5fca67ec.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/drupalapi/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.ee17a4d5.chunk.js": "/drupalapi/static/js/2.ee17a4d5.chunk.js",
+    "static/js/2.ee17a4d5.chunk.js.map": "/drupalapi/static/js/2.ee17a4d5.chunk.js.map",
+    "index.html": "/drupalapi/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/drupalapi/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.cd5af194.chunk.css.map": "/drupalapi/static/css/main.cd5af194.chunk.css.map",
+    "static/js/2.ee17a4d5.chunk.js.LICENSE.txt": "/drupalapi/static/js/2.ee17a4d5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fca67ec.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.ee17a4d5.chunk.js",
+    "static/css/main.cd5af194.chunk.css",
+    "static/js/main.ec83b3f1.chunk.js"
+  ]
+}
