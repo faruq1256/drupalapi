@@ -7,7 +7,7 @@ import App from './App';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/drupalapi">
     <App />
   </BrowserRouter>,
   document.getElementById('root')

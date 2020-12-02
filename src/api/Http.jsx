@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const Http = axios.create({
-  baseURL: "http://localhost/examples/drupal8",
+  baseURL: "http://janari.in/drupal",
   headers : {
     'Content-Type' : 'application/hal+json',
     'Accept':'application/json',
