@@ -2,7 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-const Menu = () => {
+const Menu = (props) => {
+  const authTokens = props.Atoken;
+  console.log("authTokens " + authTokens);
   return (
     <>
       <div className="container-fluid nav_bg">
@@ -39,17 +41,15 @@ const Menu = () => {
                       List Nodes
                     </NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink exact className="nav-link" to="/login">
-                      Login
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink exact className="nav-link" to="/logout">
-                      Logout
-                    </NavLink>
-                  </li>
-
+                  {
+                    (authTokens) ? 
+                    <li className="nav-item"><NavLink exact className="nav-link" to="/logout">Logout</NavLink></li>
+                    :
+                    <>
+                    <li className="nav-item"><NavLink exact className="nav-link" to="/login">Login</NavLink></li>
+                    <li className="nav-item"><NavLink exact className="nav-link" to="/register">Register</NavLink></li>
+                    </>
+                  } 
                 </ul>
               </div>
             </nav>

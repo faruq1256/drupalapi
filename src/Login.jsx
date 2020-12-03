@@ -11,6 +11,7 @@ const Login = (props) => {
       name: '',
       pass: ''
   });
+  const [spinner, setSpinner] = useState(false);
 
   const InputEvent = (event) => {
       let name = event.target.name;
@@ -27,6 +28,7 @@ const Login = (props) => {
   }
   const submitEvent = (event) => {
     event.preventDefault();
+    setSpinner(true);
     console.log(user);
     const {name, pass} = user;
 
@@ -99,6 +101,9 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
+                { (spinner) ? <div className="spinner-border" role="status"><span className="sr-only">Loading...</span></div> : ''
+                  
+                }
               </form>
             </div>
           </div>

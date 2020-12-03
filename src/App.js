@@ -11,6 +11,7 @@ import ListNodes from './ListNodes';
 import Footer from './Footer';
 import PrivateRoute from './PrivateRoute';
 import { AuthContext } from "./auth/auth";
+import Register from './Register';
 
 const App = (props) => {
   const existingTokens = localStorage.getItem("token");
@@ -23,12 +24,13 @@ const App = (props) => {
 
 return (
   <>
-  <Menu />
+  <Menu Atoken={authTokens} />
   <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
   <Switch>
   <Route exact path='/' component={Home} />
   <Route exact path='/login' component={Login} />
   <Route exact path='/logout' component={Logout} />
+  <Route exact path='/register' component={Register} />
   <PrivateRoute exact path='/node/add' component={CreateNode} />
   <PrivateRoute exact path='/node/list' component={ListNodes} />
   <Redirect to="/" />
