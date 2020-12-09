@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './index.css';
 import Menu from './Menu';
 import Home from './Home';
@@ -12,6 +13,7 @@ import Footer from './Footer';
 import PrivateRoute from './PrivateRoute';
 import { AuthContext } from "./auth/auth";
 import Register from './Register';
+// import ImageUpload from './ImageUpload';
 
 const App = (props) => {
   const existingTokens = localStorage.getItem("token");
@@ -25,6 +27,7 @@ const App = (props) => {
 return (
   <>
   <Menu Atoken={authTokens} />
+  {/* <ImageUpload /> */}
   <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
   <Switch>
   <Route exact path='/' component={Home} />

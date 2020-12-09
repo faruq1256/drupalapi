@@ -4,6 +4,7 @@ import Node from "./Node";
 
 const ListNodes = () => {
   const [nodes, setNodes] = useState([]);
+  const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
     getNodes();
@@ -14,6 +15,7 @@ const ListNodes = () => {
       .then((res) => {
         console.log("AXIOS RESPONSE: ", res.data);
         setNodes(res.data);
+        setSpinner(false);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -28,6 +30,7 @@ const ListNodes = () => {
 
       <div className="container contact_div">
         <div className="row">
+        { (spinner) ? <div className="spinner-border" role="status"><span className="sr-only">Loading...</span></div> : ''  }
           {nodes.map((node, index) => {
             return (
               <Node
