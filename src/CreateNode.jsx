@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Http from './api/Http';
+import {BASE_URL} from './constants/Constants';
 
 const CreateNode = (props) => {
   const [node, setNode] = useState({
@@ -33,7 +34,7 @@ const CreateNode = (props) => {
       const data = {
         _links: {
           type: {
-            href: `http://janari.in/drupal/rest/type/node/article`,
+            href: `${BASE_URL}/rest/type/node/article`,
           },
         },
         title: [

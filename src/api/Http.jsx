@@ -1,8 +1,9 @@
 import axios from 'axios';
+import {BASE_URL} from '../constants/Constants';
 
 
 const Http = axios.create({
-  baseURL: "http://janari.in/drupal",
+  baseURL: BASE_URL,
   headers : {
     'Content-Type' : 'application/hal+json',
     'Accept':'application/json',

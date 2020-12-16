@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import Http from './api/Http';
+import {BASE_URL} from './constants/Constants';
 
 const Register = (props) => {
     const [user, setUser] = useState({
@@ -34,7 +35,7 @@ const Register = (props) => {
             const data = {
                 _links: {
                     type: {
-                      href: `http://janari.in/drupal/rest/type/user/user`,
+                      href: `${BASE_URL}/rest/type/user/user`,
                     },
                   },
                 "name": [{ "value": name }],
